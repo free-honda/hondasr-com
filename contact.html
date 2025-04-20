@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ホンダ社労士事務所</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-title">
+      <a href="index.html">
+        <img src="images/logo.png" alt="ロゴ" style="height: 50px;">
+      </a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-menu" id="nav-menu">
+      <a href="index.html">HOME</a>
+      <a href="office.html">事務所案内</a>
+      <a href="services.html">サービス案内</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="support-a.html">就労支援A型</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>お問い合わせ</h2>
+      <p>お問い合わせがある方は、以下の電話番号までご連絡ください（平日：9:30〜17:30）。</p>
+      <ul>
+        <li>📞 電話番号：089-954-3157</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; ホンダ社労士事務所</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
+

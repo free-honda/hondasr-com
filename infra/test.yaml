@@ -1,0 +1,101 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: S3 + CloudFront + Route53
+
+Parameters:
+  DomainName:
+    Type: String
+    Default: "honda333.blog"
+    Description: "独自ドメイン名（例: honda333.blog）"
+  HostedZoneId:
+    Type: String
+    Default: "xxx"
+    Description: "Route53のホストゾーンID（例: xxx）"
+
+Resources:
+
+  # S3 バケット
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: honda-ehime
+      AccessControl: Private
+      Tags:
+        - Key: Name
+          Value: MyS3Bucket
+        - Key: Environment
+          Value: Production
+
+  # CloudFront OAI
+  CloudFrontOAI:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: OAI for S3 bucket
+
+  # S3 バケットポリシー（OAI許可）
+  S3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              CanonicalUser: !GetAtt CloudFrontOAI.S3CanonicalUserId
+            Action: "s3:GetObject"
+            Resource: !Sub "${S3Bucket.Arn}/*"
+
+  # CloudFront ディストリビューション
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: CloudFront Distribution for honda-ehime with custom domain
+        DefaultRootObject: index.html
+        Origins:
+          - Id: S3Origin
+            DomainName: !GetAtt S3Bucket.RegionalDomainName
+            OriginPath: /honda-sr-office_20250323  # ← 追加された部分
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOAI}"
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+        PriceClass: PriceClass_100
+        Aliases:
+          - !Ref DomainName
+        ViewerCertificate:
+          AcmCertificateArn: arn:aws:acm:us-east-1:xxx
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+        Restrictions:
+          GeoRestriction:
+            RestrictionType: none
+      Tags:
+        - Key: Name
+          Value: MyCloudFrontDistribution
+        - Key: Environment
+          Value: Production
+
+  # Route53 Aレコード（CloudFrontへのAlias）
+  Route53RecordSet:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Ref DomainName
+      Type: A
+      AliasTarget:
+        HostedZoneId: xxx
+        DNSName: !GetAtt CloudFrontDistribution.DomainName

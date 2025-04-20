@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ホンダ社労士事務所</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <header>
+    <div class="header-title">
+      <a href="index.html">
+        <img src="images/logo.png" alt="ロゴ" style="height: 50px;">
+      </a>
+    </div>
+
+    <!-- ハンバーガーメニューアイコン -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="nav-menu">
+      <a href="index.html">HOME</a>
+      <a href="office.html">事務所案内</a>
+      <a href="services.html">サービス案内</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="support-a.html">就労支援A型</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- 画像追加 -->
+    <section class="top-image">
+      <img src="images/bridge.png" alt="ホンダ社労士事務所の外観またはイメージ画像" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 30px;" />
+    </section>
+
+    <section>
+      <h2>人事労務情報</h2>
+      <ul>
+        <li><a href="info/20241226093859.html">2024.12.26 ホームページを開設いたしました</a></li>
+        <li><a href="info/20250105090000.html">2025.01.05 年始の営業を開始しました（サンプル）</a></li>
+        <li><a href="info/20250115100000.html">2025.01.15 就業規則の無料相談キャンペーン開始（サンプル）</a></li>
+        <li><a href="info/20250201103000.html">2025.02.01 セミナー開催「労務管理の基本」（サンプル）</a></li>
+        <li><a href="info/20250301120000.html">2025.03.01 ホームページを一部リニューアルしました（サンプル）</a></li>
+        <li><a href="info/20250315091500.html">2025.03.15 助成金制度の最新情報を掲載しました（サンプル）</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>お知らせ</h2>
+      <ul>
+        <li>仕事時間：9:30〜17:30</li>
+        <li>休憩時間：12:30〜13:30</li>
+        <li>年末休暇：12:30〜13:30</li>
+        <li>休憩時間：12:30〜13:30</li>
+        <!-- <li><a href="info/20250115100000.html">2025.01.15 就業規則の無料相談キャンペーン開始（サンプル）</a></li>
+        <li><a href="info/20250201103000.html">2025.02.01 セミナー開催「労務管理の基本」（サンプル）</a></li>
+        <li><a href="info/20250301120000.html">2025.03.01 ホームページを一部リニューアルしました（サンプル）</a></li>
+        <li><a href="info/20250315091500.html">2025.03.15 助成金制度の最新情報を掲載しました（サンプル）</a></li> -->
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; ホンダ社労士事務所</p>
+  </footer>
+
+  <!-- メニュー開閉スクリプト -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
