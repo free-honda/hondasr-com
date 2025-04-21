@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ホンダ社労士事務所</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/support-a.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-title">
+      <a href="index.html">
+        <img src="images/logo.png" alt="ロゴ" style="height: 50px;">
+      </a>
+    </div>
+
+    <!-- ハンバーガーメニューアイコン -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="nav-menu">
+      <a href="index.html">HOME</a>
+      <a href="office.html">事務所案内</a>
+      <a href="services.html">サービス案内</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="support-a.html">就労支援A型</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section id="what">
+      <h2>就労支援A型とは？</h2>
+      <p>
+        就労継続支援A型は、障がいや体調に配慮が必要な方が「雇用契約を結んだうえで」働くことができる福祉サービスです。<br>
+        一般就労へのステップとして、安定した環境で就労習慣を身につけながら、社会とのつながりを実感できる場を提供します。
+      </p>
+    </section>
+
+    <section id="support">
+      <h2>支援内容</h2>
+      <p>
+        日常の生活リズムの安定支援から、職業訓練・就労に向けた面談、体調管理・人間関係に関するフォローアップまで、<br>
+        一人ひとりに寄り添った支援を行います。また、職場内外でのコミュニケーション支援や一般就労への移行に向けた支援も行います。
+      </p>
+    </section>
+
+    <section id="target">
+      <h2>利用対象者</h2>
+      <p>
+        身体・知的・精神・発達障がいのある方や、難病等により一般就労が難しいとされる方が対象です。<br>
+        原則として、障害者手帳や医師の診断書、自治体の受給者証が必要になります。
+      </p>
+    </section>
+
+    <section id="day">
+      <h2>1日の流れ</h2>
+      <p>
+        例）<br>
+        09:30　朝礼・体調確認<br>
+        10:00　作業開始（軽作業・データ入力など）<br>
+        12:00　昼食・休憩<br>
+        13:00　作業再開<br>
+        15:00　清掃・日報記入・終礼<br>
+        ※個々の体調や希望に応じて柔軟に対応しています。
+      </p>
+    </section>
+
+    <section id="features">
+      <h2>事業所の特徴</h2>
+      <p>
+        ● 少人数制でアットホームな雰囲気<br>
+        ● ITスキルや事務スキルの習得も可能な軽作業中心<br>
+        ● 一人ひとりの希望・強みを活かした業務分担<br>
+        ● 障がい特性を理解した職員が常駐し、安心して取り組める環境を整えています。
+      </p>
+    </section>
+
+    <section id="fees">
+      <h2>利用料金</h2>
+      <p>
+        多くの方が無料でご利用いただいています。<br>
+        世帯収入により自己負担額が異なるため、詳細はお住まいの市町村窓口または当事業所までお問い合わせください。
+      </p>
+    </section>
+
+    <section id="apply">
+      <h2>申し込み方法</h2>
+      <p>
+        まずはお気軽にお問い合わせフォームまたはお電話にてご連絡ください。<br>
+        見学・体験利用の日程調整をさせていただき、その後、受給者証の申請や面談を経て正式な利用開始となります。
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; ホンダ社労士事務所</p>
+  </footer>
+
+  <!-- メニュー開閉スクリプト -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
